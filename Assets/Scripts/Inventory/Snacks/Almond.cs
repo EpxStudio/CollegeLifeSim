@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Almonds : Snack {
 	public Almonds(){
-		Cost = 2;
-		Health = 5;
+		Cost = 1;
+		Hunger = 2;
 	}
 
 
