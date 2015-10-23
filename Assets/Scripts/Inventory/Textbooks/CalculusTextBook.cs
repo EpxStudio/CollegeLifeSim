@@ -6,5 +6,6 @@ public class CalculusTextBook : Textbook {
 	public CalculusTextBook(){
 		Cost = 300;
 		Knowledge = 10;
+		PermanentBoost = true;
 	}
 }
