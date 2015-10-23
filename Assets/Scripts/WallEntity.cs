@@ -13,7 +13,7 @@ public class WallEntity : Entity
     {
         base.OnUpdate();
     }
-
+    
     public void OnCollisionEntity(Entity other)
     {
         int xDir = Auxs.Sign(posX - other.posX);
