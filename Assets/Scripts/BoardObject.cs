@@ -19,6 +19,13 @@ public class BoardObject : MonoBehaviour
         OnAwake();
     }
 
+    void Start()
+    {
+        BoardController.Add(this);
+
+        OnStart();
+    }
+
     public virtual void OnAwake() { }
     public virtual void OnStart() { }
     public virtual void OnUpdate() { }
