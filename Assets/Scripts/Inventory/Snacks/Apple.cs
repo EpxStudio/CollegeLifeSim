@@ -2,11 +2,9 @@
 using System.Collections;
 
 public class Apple : Snack {
-
-	//Hello, Leon!
 	public Apple(){
+		PermanentBoost = false;
 		Cost = 2;
-		Health = 3;
-		Knowledge = 1;
+		Hunger = 5;
 	}
 }
