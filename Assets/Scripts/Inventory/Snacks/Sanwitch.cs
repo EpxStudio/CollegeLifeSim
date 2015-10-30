@@ -4,7 +4,7 @@ using System.Collections;
 public class Sanwitch : Snack {
 	public Sanwitch(){
 		Cost = 8;
-		Health = 20;
+		//Health = 20;
 	}
 
 
