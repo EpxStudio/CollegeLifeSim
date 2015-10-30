@@ -57,7 +57,17 @@ public class PlayerEntity : Entity
         // if the player presses the button
         if (InputController.GetKeyDown(Keys.Advance))
         {
-            // TODO: do something?
+            Entity[] objects = BoardController.GetAt<Entity>(posX + lastDirX, posY + lastDirY);
+
+            foreach (Entity obj in objects)
+            {
+                if (obj == this)
+                {
+                    continue;
+                }
+
+                obj.OnAction();
+            }
         }
     }
 }
