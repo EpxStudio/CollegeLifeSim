@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//Should this be static class?
 public class Constants
 {
     // ENGINE CONSTANTS

@@ -2,8 +2,10 @@
 using System.Collections;
 
 // Auxilliary functions
+//Should this be a static class?
 public class Auxs
 {
+
     public static int Sign(int num)
     {
         return num > 0 ? 1 : (num < 0 ? -1 : 0);

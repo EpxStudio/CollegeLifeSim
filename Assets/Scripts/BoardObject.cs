@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//What is a BoardObject?
 public class BoardObject : MonoBehaviour
 {
     public int posX;

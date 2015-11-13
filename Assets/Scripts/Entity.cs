@@ -90,5 +90,6 @@ public class Entity : BoardObject
     }
 
     // Return true if the position is now open to move into
+	//Is this always false?
     public virtual bool OnCollisionSolid(Entity other) { return false; }
 }
