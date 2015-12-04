@@ -35,7 +35,7 @@ public class NPCEntity : Entity
         else
         {
             // This will make two successive messages
-            ChatController.Show("Don't shove me, bitch!");
+            ChatController.Show("Don't shove me, pal!");
             ChatController.Show("Get out of my face.");
 
             // Move the other object (the player) away from the npc
