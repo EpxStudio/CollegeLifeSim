@@ -69,12 +69,6 @@ public abstract class Weapon : MonoBehaviour {
 
     void shoot()
     {
-        //Vector2 mousePosition = _GM.mouseLocation;
-        //Vector2 firePointVector = new Vector2(firePoint.transform.position.x, firePoint.transform.position.y);
-
-        //Debug.DrawRay(firePoint.transform.position, firePoint.transform.rotation * new Vector3(10f, 0f, 0f), Color.black);
-        //Debug.DrawLine(firePointVector, (mousePosition - firePointVector) * 100);
-
         foreach (Quaternion value in rayList)
         {
             RaycastHit2D[] allHit = Physics2D.RaycastAll(firePoint.transform.position, (value * firePoint.transform.rotation) * new Vector3(1f, 0f, 0f), range, notToHit);
@@ -134,6 +128,7 @@ public abstract class Weapon : MonoBehaviour {
                 {
                     hitPos = hit.point;
                     hitNormal = hit.normal;
+                    //Debug.Log(hitNormal);
                 }
 
                 effect(value, hitPos, hitNormal);
@@ -174,7 +169,7 @@ public abstract class Weapon : MonoBehaviour {
 
         if (hitNormal != new Vector3(9999,9999,9999))
         {
-            Transform tempEffect = Instantiate(hitEffect, hitPos, Quaternion.FromToRotation(Vector3.right, hitNormal)) as Transform;
+            Transform tempEffect = Instantiate(hitEffect, hitPos, Quaternion.LookRotation(hitNormal)) as Transform;
             Destroy(tempEffect.gameObject, .5f);
         }
     }

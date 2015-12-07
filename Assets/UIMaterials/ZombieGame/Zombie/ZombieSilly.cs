@@ -5,6 +5,7 @@ public class ZombieSilly : ZombieAbstract {
 
     public float speedChangeFrequency = 1.2f;
     public float speedChangeAmount = 0.1f;                   // the curSpeed is redundant to the speed of the being but I was just using it for testing
+    public float minSpeedRatio = .5f;
     private float maxSpeed;
     private float curSpeed;
     private Totter tot;
@@ -23,6 +24,11 @@ public class ZombieSilly : ZombieAbstract {
     {
         maxSpeed = speed;
         curSpeed = speed;
+        if (minSpeedRatio > 1)
+        {
+            minSpeedRatio = .5f;
+            Debug.Log("minSpeedRatio must be <= 1");
+        }
     }
 
 	void Update () {
@@ -53,7 +59,7 @@ public class ZombieSilly : ZombieAbstract {
                 tot = Totter.Down;
                 //Debug.Log("going Down");
             }
-            else if (curSpeed <= maxSpeed / 2f)
+            else if (curSpeed <= maxSpeed * minSpeedRatio)
             {
                 tot = Totter.Up;
                 //Debug.Log("going up");
