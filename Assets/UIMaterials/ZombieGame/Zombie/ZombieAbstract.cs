@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ZombieBasic : Being {
+public abstract class ZombieAbstract: Being {
 
-    ZombieBasic entity;
+    ZombieAbstract entity;
     public float visonRange = 10;
 
 	void Awake()

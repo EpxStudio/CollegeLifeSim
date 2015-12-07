@@ -86,5 +86,6 @@ public class Player : Being {
     {
         gunArray.Add(Instantiate(newGun, weaponSpot.transform.position, weaponSpot.transform.rotation));
         (gunArray[gunArray.Count-1] as GameObject).transform.parent = weaponSpot.transform;
+        (gunArray[gunArray.Count - 1] as GameObject).transform.gameObject.SetActive(false);
     }
 }

@@ -19,7 +19,7 @@ public class Wall : Entity
     {
 		//this code doesn't do anything
 		//yay
-        int xDir = Auxs.Sign(posX - other.posX);
-        int yDir = Auxs.Sign(posY - other.posY);
+        //int xDir = Auxs.Sign(posX - other.posX);
+        //int yDir = Auxs.Sign(posY - other.posY);
     }
 }
