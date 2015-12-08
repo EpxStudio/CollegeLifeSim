@@ -5,8 +5,8 @@ using System.Collections;
 
 public class MapPanelScript : MonoBehaviour {
 
-    Hashtable buttonList = new Hashtable ();
-    Hashtable sceneTable = new Hashtable();
+    //Hashtable buttonList = new Hashtable ();
+    //Hashtable sceneTable = new Hashtable();
     GameObject scrollView;
     Text text;
     
