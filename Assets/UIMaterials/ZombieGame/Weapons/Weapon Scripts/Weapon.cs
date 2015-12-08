@@ -15,6 +15,7 @@ public abstract class Weapon : MonoBehaviour {
     public float effectSpawnRate = 20;
     public Transform bulletTrail;
     public Transform hitEffect;
+    public AudioClip fireSound;
     int currentAmo;
 
     // values for the class
@@ -55,6 +56,10 @@ public abstract class Weapon : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 shoot();
+                if (fireSound != null)
+                {
+                    playSound();
+                }
             }
         }
         else
@@ -63,6 +68,10 @@ public abstract class Weapon : MonoBehaviour {
             {
                 timeToFire = Time.time + 1 / fireRate;
                 shoot();
+                if (fireSound != null)
+                {
+                    playSound();
+                }
             }
         }
     }
@@ -172,6 +181,13 @@ public abstract class Weapon : MonoBehaviour {
             Transform tempEffect = Instantiate(hitEffect, hitPos, Quaternion.LookRotation(hitNormal)) as Transform;
             Destroy(tempEffect.gameObject, .5f);
         }
+    }
+
+    void playSound()
+    {
+        transform.GetComponent<AudioSource>().clip = fireSound;
+        transform.GetComponent<AudioSource>().volume = 0.4f;
+        transform.GetComponent<AudioSource>().Play();
     }
 
 }
