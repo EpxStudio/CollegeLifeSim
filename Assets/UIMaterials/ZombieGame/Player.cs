@@ -8,7 +8,6 @@ public class Player : Being {
     GameObject entity;                      // this object (I reference entity in this script even though I dont need to)
     MovementScript movement;                // movement speed of the player. We can make the player slow down and speed up in the future
     public Vector3 rotaion;                 // future clamp on the rotation speed of the player
-    public int rotationOffset = 90;
     private GameObject weaponSpot;          // the spot on the player transform where the gun is held
     public GameObject startGun;             // Starting gun passed to the player
 
@@ -52,7 +51,7 @@ public class Player : Being {
 
         float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         rotaion = Quaternion.Euler(1f, 1f, rotZ) * new Vector3(10f, 0f, 0f);
-        entity.transform.rotation = Quaternion.Euler(0f, 0f, rotZ); // * (turnSpeed * Time.deltaTime) not needed
+        entity.transform.rotation = Quaternion.Slerp(entity.transform.rotation, Quaternion.Euler(0, 0, rotZ), turnSpeed * Time.deltaTime);//Quaternion.Euler(0f, 0f, rotZ); 
         //Debug.DrawRay(entity.transform.position, entity.transform.rotation * new Vector3(10f, 0f, 0f), Color.cyan);
         // to make the character turn more slowly, keep track of the last mouse position and then turn for a % of the current and previous over time
     }
@@ -89,3 +88,5 @@ public class Player : Being {
         (gunArray[gunArray.Count - 1] as GameObject).transform.gameObject.SetActive(false);
     }
 }
+
+// need to implement the new cur/MAX_SPEED in the being class

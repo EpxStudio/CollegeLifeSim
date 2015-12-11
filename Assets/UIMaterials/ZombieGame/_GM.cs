@@ -7,7 +7,7 @@ public class _GM : MonoBehaviour {
     public static GameObject player;
     public static Vector3 mouseLocation;
     public static bool leftClickSinglePress;
-    public AudioClip backMusic;
+    public  AudioClip backMusic;
     static bool playMusic = false;
 
     void Awake()

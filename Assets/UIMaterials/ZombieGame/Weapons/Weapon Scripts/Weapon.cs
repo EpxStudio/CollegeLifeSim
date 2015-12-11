@@ -4,15 +4,16 @@ using System.Collections.Generic;
 
 public abstract class Weapon : MonoBehaviour {
     
-    // I did a major update to this class to let guns hit multiple targets and to have a blood aplat effect. Make sure that you add this effect to your weapons
+    // I did a major update to this class to let guns hit multiple targets and to have a blood splat effect. Make sure that you add this effect to your weapons
 
     // gun stats
     public float fireRate = 0;
     public float damage = 10;
     public float range = 10;
-    public int maxAmo;
+    //public int maxAmo;
+    public float critChance = 0f;                          // needs to be between 0 and 1
     public bool multiTarget = false;                       // if the ray can hit more than the first target hit
-    public float effectSpawnRate = 20;
+    //public float effectSpawnRate = 20;
     public Transform bulletTrail;
     public Transform hitEffect;
     public AudioClip fireSound;
@@ -23,7 +24,7 @@ public abstract class Weapon : MonoBehaviour {
     private GameObject player;
     float timeToFire = 0;
     bool click = false;
-    Transform firePoint;
+    protected Transform firePoint;
     private GameObject gm;
     private float timeToSpawnEffect = 0;
 
@@ -45,7 +46,13 @@ public abstract class Weapon : MonoBehaviour {
         {
             Debug.Log("Can't find the 'hitEffect' of the weapon");
         }
+        if ((critChance > 1f || critChance < 0.1f) && critChance != 0)
+        {
+            Debug.Log("The 'critChance' must be between .1 and 1");
+            critChance = 0f;
+        }
 
+        // default bullet angle
         rayList.Add(Quaternion.Euler(1f, 1f, 1f));
     }
 
@@ -76,7 +83,8 @@ public abstract class Weapon : MonoBehaviour {
         }
     }
 
-    void shoot()
+    // shoot casts a number of rays eqaul to the amount of quarternions in the ray list. It is devided into multi target and first target hit
+    protected virtual void shoot()
     {
         foreach (Quaternion value in rayList)
         {
@@ -90,7 +98,7 @@ public abstract class Weapon : MonoBehaviour {
                     {
                         if (tempHit.transform.GetComponent<ZombieAbstract>() != null)
                         {
-                            tempHit.transform.GetComponent<ZombieAbstract>().takeDamage(damage);
+                            tempHit.transform.GetComponent<ZombieAbstract>().takeDamage(checkCrit());
                             //Debug.Log("it was hit " + hit.transform.name);
                         }
                     }
@@ -120,7 +128,7 @@ public abstract class Weapon : MonoBehaviour {
                 {
                     if (hit.transform.GetComponent<ZombieAbstract>() != null)
                     {
-                        hit.transform.GetComponent<ZombieAbstract>().takeDamage(damage);
+                        hit.transform.GetComponent<ZombieAbstract>().takeDamage(checkCrit());
                         //Debug.Log("it was hit " + hit.transform.name);
                     }
                 }
@@ -186,8 +194,20 @@ public abstract class Weapon : MonoBehaviour {
     void playSound()
     {
         transform.GetComponent<AudioSource>().clip = fireSound;
-        transform.GetComponent<AudioSource>().volume = 0.4f;
+        transform.GetComponent<AudioSource>().volume = 0.3f;
         transform.GetComponent<AudioSource>().Play();
     }
 
+    // checkCrit will check if the shot was a crit and return the modified damage if it was. Will just return the origonal damage if not
+    protected float checkCrit()
+    {
+        float tempF = Random.Range(0, 10);
+
+        if ( tempF <= (critChance - .1f) * 10 && critChance > 0)
+        {
+            Debug.Log("CRIT!");
+            return (damage * 2f);
+        }
+        else return (damage);
+    }
 }

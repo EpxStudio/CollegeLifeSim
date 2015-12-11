@@ -5,7 +5,7 @@ public class ZombieSilly : ZombieAbstract {
 
     public float speedChangeFrequency = 1.2f;
     public float speedChangeAmount = 0.1f;                   // the curSpeed is redundant to the speed of the being but I was just using it for testing
-    public float minSpeedRatio = .5f;
+    public float minSpeedRatio = .5f;                        // this zombie does not use the new max/cur speed of the base being class
     private float maxSpeed;
     private float curSpeed;
     private Totter tot;

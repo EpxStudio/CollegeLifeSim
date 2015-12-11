@@ -5,6 +5,7 @@ public class EnemySpawner : MonoBehaviour {
 
     public GameObject enemySpawned;
     public float spawnFrequency = 2f;
+    public float spawnRange = 5f;
 
     void Awake()
     {
@@ -25,6 +26,6 @@ public class EnemySpawner : MonoBehaviour {
     void spawn()
     {
         //Debug.Log(enemySpawned.transform);
-        Instantiate(enemySpawned, transform.position, transform.rotation);
+        Instantiate(enemySpawned, transform.position + new Vector3(Random.Range(0f, spawnRange), Random.Range(0f, spawnRange), 0f), transform.rotation);
     }
 }

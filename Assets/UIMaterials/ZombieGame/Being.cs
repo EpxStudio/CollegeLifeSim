@@ -4,6 +4,7 @@ using System.Collections;
 public abstract class Being : MonoBehaviour {
 
     private readonly float MAX_HEALTH;
+    private readonly float MAX_SPEED;
 
     public float health;
     public float speed;
@@ -16,6 +17,7 @@ public abstract class Being : MonoBehaviour {
     public Being()
     {
         MAX_HEALTH = health;
+        MAX_SPEED = speed;
         alive = true;
     }
 
