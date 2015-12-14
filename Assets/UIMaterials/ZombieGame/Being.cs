@@ -3,8 +3,8 @@ using System.Collections;
 
 public abstract class Being : MonoBehaviour {
 
-    private readonly float MAX_HEALTH;
-    private readonly float MAX_SPEED;
+    protected float MAX_HEALTH;
+    protected float MAX_SPEED;
 
     public float health;
     public float speed;
@@ -14,7 +14,7 @@ public abstract class Being : MonoBehaviour {
     private bool alive;
 
     // initialize the health and alive
-    public Being()
+    void Awake()
     {
         MAX_HEALTH = health;
         MAX_SPEED = speed;

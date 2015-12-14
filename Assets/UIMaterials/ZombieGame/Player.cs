@@ -15,7 +15,7 @@ public class Player : Being {
     GameObject gun;                         // current gun being used
     int curGun;                             // place in gun array
 
-    void Awake()
+    void Start()
     {
         entity = GetComponent<Transform>().gameObject;
         movement = GetComponent<MovementScript>();
@@ -58,7 +58,7 @@ public class Player : Being {
 
     public void switchGuns()
     {
-        if (Input.GetKeyUp(KeyCode.Q))
+        if (Input.GetKeyUp(KeyCode.Q) || Input.GetAxis("Mouse ScrollWheel") > 0)
         {
             if (gunArray.Count != 1)
             {

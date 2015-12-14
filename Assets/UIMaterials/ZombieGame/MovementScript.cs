@@ -22,7 +22,7 @@ public class MovementScript : MonoBehaviour {
 
     void Awake()
     {
-        entity = GetComponent<Transform>().gameObject;
+        //entity = GetComponent<Transform>().gameObject;
         //instance = this;
         lastMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

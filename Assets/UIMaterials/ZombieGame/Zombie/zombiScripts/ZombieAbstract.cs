@@ -6,7 +6,7 @@ public abstract class ZombieAbstract: Being {
     ZombieAbstract entity;
     public float visonRange = 10;
 
-	void Awake()
+	void Start()
     {
         entity = this;
     }
@@ -18,7 +18,7 @@ public abstract class ZombieAbstract: Being {
         updateMove();
     }
 
-    public void updateMove()
+    protected virtual void updateMove()
     {
         // float xDiff = _GM.player.transform.position.x - transform.position.x;
         // float yDiff = _GM.player.transform.position.y - transform.position.y;

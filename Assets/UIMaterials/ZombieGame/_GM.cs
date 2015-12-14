@@ -13,27 +13,27 @@ public class _GM : MonoBehaviour {
     void Awake()
     {
         instance = this;
-        if (backMusic != null)
+        /*if (backMusic != null)
         {
             transform.GetComponent<AudioSource>().clip = backMusic;
             transform.GetComponent<AudioSource>().volume = 0.7f;
-        }
+        }*/
     }
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").gameObject;
-        playAudio();
+        //playAudio();
     }
 
     void Update()
     {
         mouseLocation = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (Input.GetKeyUp(KeyCode.Space))
+        /*if (Input.GetKeyUp(KeyCode.Space))
         {
             playAudio();
-        }
+        }*/
     }
 
     void playAudio()

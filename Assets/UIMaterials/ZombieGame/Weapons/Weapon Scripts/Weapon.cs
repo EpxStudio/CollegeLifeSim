@@ -53,7 +53,7 @@ public abstract class Weapon : MonoBehaviour {
         }
 
         // default bullet angle
-        rayList.Add(Quaternion.Euler(1f, 1f, 1f));
+        rayList.Add(Quaternion.Euler(0f, 0f, 0f));
     }
 
     
@@ -205,7 +205,7 @@ public abstract class Weapon : MonoBehaviour {
 
         if ( tempF <= (critChance - .1f) * 10 && critChance > 0)
         {
-            Debug.Log("CRIT!");
+            //Debug.Log("CRIT!");
             return (damage * 2f);
         }
         else return (damage);
