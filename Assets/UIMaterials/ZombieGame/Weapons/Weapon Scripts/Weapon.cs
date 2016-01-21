@@ -23,9 +23,9 @@ public abstract class Weapon : MonoBehaviour {
     public LayerMask notToHit;
     private GameObject player;
     float timeToFire = 0;
-    bool click = false;
+    //bool click = false;
     protected Transform firePoint;
-    private GameObject gm;
+    //private GameObject gm;
     private float timeToSpawnEffect = 0;
 
     // list of rotation on vectors if mutiple vectors need to be fired from a gun
@@ -35,9 +35,9 @@ public abstract class Weapon : MonoBehaviour {
 
     // if this is not being called that means a subclass of Weapon is being overridden. THIS CAN BE VERY ANNOYING!
 	void Awake () {
-        player = GameObject.FindGameObjectWithTag("Player").transform.gameObject;
+        //player = GameObject.FindGameObjectWithTag("Player").transform.gameObject;
         firePoint = transform.FindChild("FirePoint");
-        gm = GameObject.FindGameObjectWithTag("GameMaster").gameObject;
+        //gm = GameObject.FindGameObjectWithTag("GameMaster").gameObject;
         if (firePoint == null)
         {
             Debug.LogError("Can't find the 'FirePoint' of the weapon");
@@ -99,6 +99,7 @@ public abstract class Weapon : MonoBehaviour {
                         if (tempHit.transform.GetComponent<ZombieAbstract>() != null)
                         {
                             tempHit.transform.GetComponent<ZombieAbstract>().takeDamage(checkCrit());
+                            effectOnTarget(tempHit.transform);
                             //Debug.Log("it was hit " + hit.transform.name);
                         }
                     }
@@ -129,6 +130,7 @@ public abstract class Weapon : MonoBehaviour {
                     if (hit.transform.GetComponent<ZombieAbstract>() != null)
                     {
                         hit.transform.GetComponent<ZombieAbstract>().takeDamage(checkCrit());
+                        effectOnTarget(hit.transform);
                         //Debug.Log("it was hit " + hit.transform.name);
                     }
                 }
@@ -209,5 +211,21 @@ public abstract class Weapon : MonoBehaviour {
             return (damage * 2f);
         }
         else return (damage);
+    }
+
+    protected virtual void effectOnTarget(Transform t)
+    {
+        // this is an empty method that can be overridden to add on hit effects. I did not make this abstract so that
+        // people that made previous classes would not have to add a new method to their subclasses
+
+        /*
+        add this method to your subclass of weapon and then add methods that apply a status effects from the BeingBuffDebuffMethods class
+
+        protected override void effectOnTarget(Transform t)
+        {
+        
+        }
+
+        */
     }
 }

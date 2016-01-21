@@ -13,8 +13,9 @@ public class Vampire : ZombieAbstract {
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            heal(MAX_HEALTH/2);
-
+            // heal
+            heal(Random.Range(MAX_HEALTH * .25f, MAX_HEALTH * .33f));
+            // where to teleport after attack
             float rand = Random.Range(0f, 360f);
 
             Quaternion angle = transform.rotation * Quaternion.Euler(1f, 1f, rand);
@@ -33,13 +34,13 @@ public class Vampire : ZombieAbstract {
     protected override void updateMove()
     {
         //Debug.Log("newMove");
-        if (Time.time > timeTel && Vector3.Distance(_GM.player.transform.position, transform.position) > 2f + teleportRange)
+        if (Time.time > timeTel && Vector3.Distance(_GM.player.transform.position, transform.position) > 4f + teleportRange)
         {
             timeTel = Time.time + 1 / teleportFreq;
             teleport();
             transform.position = Vector2.MoveTowards(transform.position, _GM.player.transform.position, (speed * Time.deltaTime));
         }
-        else if (Vector3.Distance(_GM.player.transform.position, transform.position) > 2f + teleportRange)
+        else if (Vector3.Distance(_GM.player.transform.position, transform.position) > 4f + teleportRange)
         {
             transform.position = Vector2.MoveTowards(transform.position, _GM.player.transform.position, (speed * Time.deltaTime));
         }

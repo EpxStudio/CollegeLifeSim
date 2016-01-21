@@ -8,7 +8,9 @@ public class _GM : MonoBehaviour {
     public static Vector3 mouseLocation;
     public static bool leftClickSinglePress;
     public  AudioClip backMusic;
+
     static bool playMusic = false;
+    public static int killCounter = 0;
 
     void Awake()
     {

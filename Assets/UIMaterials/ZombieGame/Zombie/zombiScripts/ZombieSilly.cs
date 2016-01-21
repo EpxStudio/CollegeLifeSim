@@ -32,7 +32,10 @@ public class ZombieSilly : ZombieAbstract {
     }
 
 	void Update () {
-        //Debug.Log(isAlive());
+        if (statusList.Count != 0)
+        {
+            checkBuffs();
+        }
         checkHealth();
         updateRotation();
         totterSpeed();

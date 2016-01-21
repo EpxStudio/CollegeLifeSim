@@ -4,7 +4,7 @@ using System.Collections;
 public abstract class ZombieAbstract: Being {
 
     ZombieAbstract entity;
-    public float visonRange = 10;
+    public float visonRange = 10f;
 
 	void Start()
     {
@@ -13,9 +13,15 @@ public abstract class ZombieAbstract: Being {
 
     void Update()
     {
+        if (statusList.Count != 0)
+        {
+            checkBuffs();
+        }
         checkHealth();
         updateRotation();
         updateMove();
+        //Debug.Log(transform.name + " " + statusList.Count);
+        //Debug.Log(speed);
     }
 
     protected virtual void updateMove()
@@ -44,6 +50,7 @@ public abstract class ZombieAbstract: Being {
         if (isAlive() == false)
         {
             Destroy(transform.gameObject);
+            _GM.killCounter += 1;
         }
     }
 

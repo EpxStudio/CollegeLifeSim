@@ -16,4 +16,9 @@ public class ShotGun : Weapon {
     //Debug.DrawLine(firePointVector, Quaternion.Euler(1f, 1f, -5f) * (mousePosition - firePointVector) * 100, Color.yellow);
     //Debug.DrawLine(firePointVector, Quaternion.Euler(1f, 1f, 10f) * (mousePosition - firePointVector) * 100);
     //Debug.DrawLine(firePointVector, Quaternion.Euler(1f, 1f, -10f) * (mousePosition - firePointVector) * 100, Color.yellow);
+
+    protected override void effectOnTarget(Transform t)
+    {
+        t.GetComponent<ZombieAbstract>().addDebuff(Being.Debuff.Slow, .5f, -1f);
+    }
 }

@@ -36,6 +36,7 @@ public class MapPanelScript : MonoBehaviour {
     public void desplayText (string s)
     {
         scrollView.transform.FindChild("Viewport").FindChild("Content").GetComponent<Text>().text = s;
+        scrollView.transform.FindChild("Viewport").FindChild("Content").GetComponent<Text>().color = Color.blue;
     }
 
 

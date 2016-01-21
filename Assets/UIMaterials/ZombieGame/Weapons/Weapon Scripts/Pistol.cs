@@ -3,9 +3,8 @@ using System.Collections;
 
 public class Pistol : Weapon {
 
-	void Start()
+    protected override void effectOnTarget(Transform t)
     {
-        //range = 20;
-        //damage = 5;
+        BeingBuffDebuffMethods.bonusHolyDamage(t, damage);
     }
 }

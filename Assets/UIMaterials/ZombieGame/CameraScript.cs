@@ -21,7 +21,7 @@ public class CameraScript : MonoBehaviour {
         transform.parent = null;
     }
 
-    void Update()
+    void LateUpdate()
     {
 
         float xMoveDelta = (target.position - lastTargetPosition).x;
