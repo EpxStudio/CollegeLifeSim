@@ -25,8 +25,8 @@ public class NPCShopEntity : Entity {
         if (Random.Range(0f, 1f) > 0.5f)
         {
             // This shows the message in the chat and then moves the NPC away because he's shoved
-            ChatController.Show("Hey, how ya doing?");
-            other.MoveTo(-xDir, -yDir, 0.3f);
+            //ChatController.Show("Hey, how ya doing?");
+            //other.MoveTo(-xDir, -yDir, 0.3f);
 
             // We return true because the player shoved him, so now this square is available.
             // If you return false, it means that the player is not allowed to move into this space.
@@ -39,7 +39,7 @@ public class NPCShopEntity : Entity {
             ChatController.Show("My friend there has a bit of a temper.");
 
             // Move the other object (the player) away from the npc
-            other.MoveTo(xDir, yDir, 0.3f);
+            //other.MoveTo(xDir, yDir, 0.3f);
 
             return false;
         }
