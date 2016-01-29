@@ -6,9 +6,6 @@ public class Backpack : Gear
 	public Backpack()
 	{
 		//PermanentBoost = true;
-
 	}
-
-
 }
 

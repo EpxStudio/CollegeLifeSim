@@ -15,7 +15,7 @@ public class InputController : MonoBehaviour
 
     private delegate bool KeyFunc(KeyCode key);
 
-    public Vector3 lastMousePosition;
+    public Vector3 lastMousePosition;   
     public Vector3 mousePosition;
 
     public int dirX = 0;

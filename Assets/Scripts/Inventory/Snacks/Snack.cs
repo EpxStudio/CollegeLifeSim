@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class Snack : InventoryItem {
-
-
-	
+public abstract class Snack : InventoryItem
+{
 
 }
