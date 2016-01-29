@@ -92,4 +92,7 @@ public class Entity : BoardObject
     // Return true if the position is now open to move into
 	//Is this always false?
     public virtual bool OnCollisionSolid(Entity other) { return false; }
+
+    // the player does an action on this thing
+    public virtual void OnAction() { }
 }

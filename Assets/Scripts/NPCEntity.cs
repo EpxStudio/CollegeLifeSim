@@ -44,4 +44,12 @@ public class NPCEntity : Entity
             return false;
         }
     }
+
+    public override void OnAction()
+    {
+        base.OnAction();
+
+      //  ChatController.Show("Oh, hey dude.");
+        // TODO: space shows a new one right as you close the old one fix this
+    }
 }

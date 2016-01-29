@@ -59,6 +59,17 @@ public class PlayerEntity : Entity
         {
             // TODO: do something?
 			//What are you thinking?
+            Entity[] objects = BoardController.GetAt<Entity>(posX + lastDirX, posY + lastDirY);
+
+            foreach (Entity obj in objects)
+            {
+                if (obj == this)
+                {
+                    continue;
+                }
+
+                obj.OnAction();
+            }
         }
     }
 }

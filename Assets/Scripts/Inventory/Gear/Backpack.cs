@@ -8,4 +8,3 @@ public class Backpack : Gear
 		//PermanentBoost = true;
 	}
 }
-
