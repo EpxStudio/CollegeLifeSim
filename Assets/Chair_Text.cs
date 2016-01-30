@@ -7,9 +7,6 @@ public class Chair_Text : MonoBehaviour {
 		double xDir = -3.41;
 		double yDir = 3.64;
 		ChatController.Show("Would you like to...");
-		if()
-		{
-		}
 	}
 
 	// Use this for initialization
