@@ -11,6 +11,7 @@ public class BoardController : MonoBehaviour
     void Awake()
     {
         instance = this;
+		DontDestroyOnLoad(transform.gameObject);
     }
 
     public static void Add(BoardObject board_obj)

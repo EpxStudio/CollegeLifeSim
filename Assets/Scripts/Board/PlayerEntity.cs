@@ -21,7 +21,7 @@ public class PlayerEntity : Entity
         base.OnUpdate();
 
         // if the chat is running, don't let the player move
-        if (!ChatController.isVisible)
+        if (!ChatController.instance.isVisible)
         {
             UpdateMove();
         }
@@ -57,19 +57,27 @@ public class PlayerEntity : Entity
         // if the player presses the button
         if (InputController.GetKeyDown(Keys.Advance))
         {
-            // TODO: do something?
-			//What are you thinking?
-            Entity[] objects = BoardController.GetAt<Entity>(posX + lastDirX, posY + lastDirY);
+			// only do this if the chat is open
+			if (ChatController.instance.isVisible)
+			{
+				ChatController.instance.NextMessage();
+			}
+			else
+			{
+	            // TODO: do something?
+				//What are you thinking?
+	            Entity[] objects = BoardController.GetAt<Entity>(posX + lastDirX, posY + lastDirY);
 
-            foreach (Entity obj in objects)
-            {
-                if (obj == this)
-                {
-                    continue;
-                }
+	            foreach (Entity obj in objects)
+	            {
+	                if (obj == this)
+	                {
+	                    continue;
+	                }
 
-                obj.OnAction();
-            }
+	                obj.OnAction();
+	            }
+			}
         }
     }
 }
