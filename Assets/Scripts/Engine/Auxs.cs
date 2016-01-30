@@ -25,4 +25,13 @@ public class Auxs
         newRect.height -= 2f * paddingH;
         return newRect;
     }
+
+	public static Vector3 RandomVector3()
+	{
+		float x = Random.Range(-1f, 1f);
+		float y = Random.Range(-1f, 1f);
+		float z = Random.Range(-1f, 1f);
+
+		return new Vector3(x, y, z);
+	}
 }

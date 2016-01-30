@@ -3,9 +3,9 @@ using System.Collections;
 
 public class ChatController : MonoBehaviour
 {
-    private static ChatController instance;
+    public static ChatController instance;
 
-    public static bool isVisible = false;
+    public bool isVisible = false;
     public ArrayList messages = new ArrayList();
     public GUISkin guiSkin;
 
@@ -16,10 +16,6 @@ public class ChatController : MonoBehaviour
 
     void Update()
     {
-        if (InputController.GetKeyDown(Keys.Advance))
-        {
-            NextMessage();
-        }
     }
 
     void OnGUI()
@@ -56,7 +52,7 @@ public class ChatController : MonoBehaviour
 
     public static void Show(string message)
     {
-        isVisible = true;
+        instance.isVisible = true;
         instance.messages.Add(new Message(message));
     }
 }
