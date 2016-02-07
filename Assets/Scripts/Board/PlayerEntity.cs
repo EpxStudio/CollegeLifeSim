@@ -24,14 +24,18 @@ public class PlayerEntity : Entity
         if (!ChatController.instance.isVisible)
         {
             UpdateMove();
-        }
 
-        // if the player tries to open a door or talk to a person, let's try it
-        // but only if they stopped moving
-        if (!isMoving)
-        {
-            UpdateAction();
+			// if the player tries to open a door or talk to a person, let's try it
+			// but only if they stopped moving
+			if (!isMoving)
+			{
+				UpdateAction();
+			}
         }
+		else
+		{
+			UpdateDialogue();
+		}
     }
 
     public void UpdateMove()
@@ -57,27 +61,35 @@ public class PlayerEntity : Entity
         // if the player presses the button
         if (InputController.GetKeyDown(Keys.Advance))
         {
-			// only do this if the chat is open
-			if (ChatController.instance.isVisible)
-			{
-				ChatController.instance.NextMessage();
-			}
-			else
-			{
-	            // TODO: do something?
-				//What are you thinking?
-	            Entity[] objects = BoardController.GetAt<Entity>(posX + lastDirX, posY + lastDirY);
+            // TODO: do something?
+			//What are you thinking?
+            Entity[] objects = BoardController.GetAt<Entity>(posX + lastDirX, posY + lastDirY);
 
-	            foreach (Entity obj in objects)
-	            {
-	                if (obj == this)
-	                {
-	                    continue;
-	                }
+            foreach (Entity obj in objects)
+            {
+                if (obj == this)
+                {
+                    continue;
+                }
 
-	                obj.OnAction();
-	            }
-			}
+                obj.OnAction();
+            }
         }
     }
+
+	public void UpdateDialogue()
+	{
+		if (InputController.GetKeyDown(Keys.Advance))
+		{
+			ChatController.instance.NextMessage();
+		}
+		if (InputController.GetKeyDown(Keys.Up))
+		{
+			ChatController.instance.SelectPrev();
+		}
+		if (InputController.GetKeyDown(Keys.Down))
+		{
+			ChatController.instance.SelectNext();
+		}
+	}
 }

@@ -7,6 +7,8 @@ public class NPCEntity : Entity
     {
         base.OnAwake();
 
+		DialogueController.instance.Load(this, "npc_example");
+
         isSolid = true;  // the npc is a solid object. player can't move through it
     }
 
@@ -46,8 +48,6 @@ public class NPCEntity : Entity
     {
         base.OnAction();
 
-        ChatController.Show("Oh, hey dude.");
-        // TODO: space shows a new one right as you close the old one fix this
-
+		ChatController.instance.SetDialogue(this);
     }
 }
