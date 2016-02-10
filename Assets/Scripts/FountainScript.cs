@@ -8,6 +8,28 @@ public class FountainScript : Entity
 		base.OnAwake();
 
 		isSolid = true;  // the npc is a solid object. player can't move through it
+
+		if (Input.GetKey ("y")) 
+		{
+			int chance = Random.Range (1, 4);
+			ChatController.Show ("Your wish was granted");
+
+			if (chance == 1) {
+				ChatController.Show ("Beware of shitty roommates, hide your food");
+			} else if (chance == 2) {
+				ChatController.Show ("Spend your money wisely, your parents will not give you more");
+			} else if (chance == 3) {
+				ChatController.Show (" If looking for an easier play through; limit semester hours"); 
+			}
+					
+
+		}
+
+		else 
+		{
+			ChatController.Show("Too Bad");
+		}
+
 	}
 
 	public override void OnUpdate()
@@ -20,20 +42,6 @@ public class FountainScript : Entity
 
 		ChatController.Show ("Would you like to make a wish, y or n?");
 
-		if (Input.GetKey ("y")) 
-		{
-			print ("here");
-			ChatController.Show ("Your wish was granted");
-		}
-		 
-		else 
-		{
-			ChatController.Show("Too Bad");
-		}
-		
-		
-		
-			
 			
 		return true;
 
