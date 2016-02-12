@@ -2,7 +2,9 @@
 using System.Collections;
 
 public abstract class InventoryItem
-{	
+{
+
+    public int smartness;
 	//boolean to show if said item is passive or active (used once then gone, i.e. not permament)
 	public bool PermanentBoost;
 	public int Experience;
