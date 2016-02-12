@@ -30,11 +30,13 @@ public class UIBehaviorMain : MonoBehaviour {
             //Debug.Log(mainCamera);
             mapPanel.transform.position = new Vector2(mainCamera.transform.position.x + 700, mainCamera.transform.position.y + 350);
             mapVis = true;
+            GameMaster.uiVis = true;
         }
         else
         {
             mapPanel.transform.position = new Vector2(mainCamera.transform.position.x, mainCamera.transform.position.y - 200);
             mapVis = false;
+            GameMaster.uiVis = false;
         }
     }
 
