@@ -1,0 +1,18 @@
+[intro]
+Matt: Hi my friend.
+Matt: I'm Matt.
+!CHOOSE[pie] Matt: Do you like cinnamon or butterscotch?
+> Cinnamon
+> Butterscotch
+
+[pie 1]
+Matt: You did well.
+!GOTO end
+
+[pie 2]
+Matt: Fuck you you piece of shit.
+!GOTO end
+
+[end]
+Matt: I'm just gonna go now.
+!EXIT

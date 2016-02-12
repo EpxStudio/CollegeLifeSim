@@ -20,7 +20,10 @@ public class Entity : BoardObject
     public override void OnAwake()
     {
         base.OnAwake();
-        sprite = GetComponent<SpriteRenderer>();
+		if (!sprite)
+		{
+	        sprite = GetComponent<SpriteRenderer>();
+		}
     }
 
     void Update()
@@ -42,7 +45,10 @@ public class Entity : BoardObject
 
         // Use 3/4s 3D power! Use y as z to make a 3d effect
         transform.position = new Vector3(realPos.x, realPos.y, 0f);
-        sprite.sortingOrder = Mathf.RoundToInt(-1f * realPos.y * Constants.SORTING_ORDER_INTENSITY);
+		if (sprite)
+		{
+	        sprite.sortingOrder = Mathf.RoundToInt(-1f * realPos.y * Constants.SORTING_ORDER_INTENSITY);
+		}
     }
 
     // Relative Position

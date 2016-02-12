@@ -25,4 +25,30 @@ public class Auxs
         newRect.height -= 2f * paddingH;
         return newRect;
     }
+
+	public static Vector3 RandomVector3()
+	{
+		float x = Random.Range(-1f, 1f);
+		float y = Random.Range(-1f, 1f);
+		float z = Random.Range(-1f, 1f);
+
+		return new Vector3(x, y, z);
+	}
+
+	public static string PrintArray<T>(T[] arr)
+	{
+		return PrintArray<T>(arr, "\n");
+	}
+
+	public static string PrintArray<T>(T[] arr, string delimiter)
+	{
+		if (arr.Length == 0) return "";
+
+		string output = arr[0].ToString();
+		for (int i = 1; i < arr.Length; i++)
+		{
+			output += delimiter + arr[i].ToString();
+		}
+		return output;
+	}
 }

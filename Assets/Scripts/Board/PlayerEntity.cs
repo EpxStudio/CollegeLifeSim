@@ -21,17 +21,21 @@ public class PlayerEntity : Entity
         base.OnUpdate();
 
         // if the chat is running, don't let the player move
-        if (!ChatController.isVisible)
+        if (!ChatController.instance.isVisible)
         {
             UpdateMove();
-        }
 
-        // if the player tries to open a door or talk to a person, let's try it
-        // but only if they stopped moving
-        if (!isMoving)
-        {
-            UpdateAction();
+			// if the player tries to open a door or talk to a person, let's try it
+			// but only if they stopped moving
+			if (!isMoving)
+			{
+				UpdateAction();
+			}
         }
+		else
+		{
+			UpdateDialogue();
+		}
     }
 
     public void UpdateMove()
@@ -72,4 +76,20 @@ public class PlayerEntity : Entity
             }
         }
     }
+
+	public void UpdateDialogue()
+	{
+		if (InputController.GetKeyDown(Keys.Advance))
+		{
+			ChatController.instance.NextMessage();
+		}
+		if (InputController.GetKeyDown(Keys.Up))
+		{
+			ChatController.instance.SelectPrev();
+		}
+		if (InputController.GetKeyDown(Keys.Down))
+		{
+			ChatController.instance.SelectNext();
+		}
+	}
 }

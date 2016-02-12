@@ -7,6 +7,8 @@ public class NPCEntity : Entity
     {
         base.OnAwake();
 
+		DialogueController.instance.Load(this, "npc_example");
+
         isSolid = true;  // the npc is a solid object. player can't move through it
     }
 
@@ -26,12 +28,9 @@ public class NPCEntity : Entity
         {
             // This shows the message in the chat and then moves the NPC away because he's shoved
             ChatController.Show("Hey, quit shoving.");
-            MoveTo(-xDir, -yDir, 0.3f);
-
-            // We return true because the player shoved him, so now this square is available.
-            // If you return false, it means that the player is not allowed to move into this space.
-            return true;
-        }
+            
+			return MoveTo(-xDir, -yDir, 0.3f);
+		}
         else
         {
             // This will make two successive messages
@@ -49,7 +48,6 @@ public class NPCEntity : Entity
     {
         base.OnAction();
 
-      //  ChatController.Show("Oh, hey dude.");
-        // TODO: space shows a new one right as you close the old one fix this
+		ChatController.instance.SetDialogue(this);
     }
 }
