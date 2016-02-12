@@ -8,6 +8,16 @@ static class MainPlayer {
     //baseSmartness is a set value which can be added to by smartness which is gained from items
     private static int baseSmartness;
 
-    public static int smartness;    
+    public static int smartness
+    {
+        get
+        {
+            return baseSmartness;
+        }
+        private set
+        {
+            baseSmartness = value;
+        }
+    }    
 
 }
