@@ -19,9 +19,8 @@ public class FountainScript : Entity
 			} else if (chance == 2) {
 				ChatController.Show ("Spend your money wisely, your parents will not give you more");
 			} else if (chance == 3) {
-				ChatController.Show (" If looking for an easier play through; limit semester hours"); 
+				ChatController.Show ("If looking for an easier play through; limit semester hours"); 
 			}
-					
 
 		}
 
