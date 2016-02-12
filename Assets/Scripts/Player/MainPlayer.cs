@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public static class MainPlayer {
+static class MainPlayer {
+    //Object attributed to player of game
+    //Possesses stats which are gained from items 
 
+    //baseSmartness is a set value which can be added to by smartness which is gained from items
+    private static int baseSmartness;
 
-    #Make a List<InventoryItems> which contains the items in my inventory
-
-
+    public static int smartness;    
 
 }
