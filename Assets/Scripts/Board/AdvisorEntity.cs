@@ -20,7 +20,7 @@ public class AdvisorEntity : Entity
 		Debug.Log("In Collision");
 		ChatController.Show ("Hello welcome to college, I will be you're advisor");
 
-		return true;
+		return false;
 
 	}
 

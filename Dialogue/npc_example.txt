@@ -1,28 +1,29 @@
-[AA 1]
+[Intro]
+AA: Youngster! I am an NPC.
 
-!CHOOSE[pie] AA: Youngster!  What are you doing in the rain?  You’ll catch a cold!
-> Who
-> Do
+!CHOOSE[pie] AA: What kind of pie do you like?
+> Apple
+> Blueberry
+> Raspberry
 	
 [pie 1]
-AA: We can discuss that somewhere drier.
-!GOTO [Player Response Resolved]
+AA: I love apple pies!
+!GOTO[Player Response Resolved]
 
 [pie 2]
-#Albert Armstrong laughs.
-AA: I didn’t know you were a comedian, youngster!
-!GOTO [Player Response Resolved]
+# This is a comment.
+# TODO Later, the AA will punch the player here.
+AA: You disgust me.
+!GOTO[Player Response Resolved]
 
 [pie 3]
-AA: Oh my…this kid’s got quite the baggage...
-!GOTO [Player Response Resolved]
+AA: Pbbfbfbt! YouÕre dumb.
+AA: Haha!
+!GOTO[Player Response Resolved]
 
 [Player Response Resolved]
-AA: Come!  Follow me!
+AA: See me after school.
 !EXIT
 
-#Player walks into building.  Next cutscene occurs.
-# Academic Advisor Interaction.
-[AA 2]
-
-AA: oh
+[Unreachable]
+AA: This code will never be reached.
