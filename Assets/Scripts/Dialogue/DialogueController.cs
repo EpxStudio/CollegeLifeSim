@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System;
+using System.IO;
 
 public class DialogueController : MonoBehaviour
 {
@@ -45,12 +46,16 @@ public class DialogueController : MonoBehaviour
 		DialogueParser parser = instanceDict[instance];
 		parser.StepDialogue(choice);
 	}
+
+	void OnGUI()
+	{
+		GUI.Label(new Rect(0, 0, 800, 20), Application.dataPath);
+	}
 }
 
 public class DialogueParser
 {
 	public string assetLocation;
-	private TextAsset rawText;
 	private string[] rawTextArray;
 	public Dictionary<string, object> varDict = new Dictionary<string, object>();
 
@@ -64,8 +69,20 @@ public class DialogueParser
 	public DialogueParser(string assetLocation)
 	{
 		this.assetLocation = assetLocation;
-		rawText = (TextAsset) Resources.Load(assetLocation, typeof(TextAsset));
-		rawTextArray = rawText.text.Split('\n');
+
+		if (Application.isEditor)
+		{
+			StreamReader sr = new StreamReader(Application.dataPath + "/../Dialogue/" + assetLocation);
+			rawTextArray = sr.ReadToEnd().Split('\n');
+			sr.Close();
+		}
+		else
+		{
+			StreamReader sr = new StreamReader(Application.dataPath + "/../Dialogue/" + assetLocation);
+			rawTextArray = sr.ReadToEnd().Split('\n');
+			sr.Close();
+		}
+
 		for (int i = 0; i < rawTextArray.Length; i++)
 		{
 			string line = rawTextArray[i].Trim();
@@ -73,6 +90,7 @@ public class DialogueParser
 			Command command = null;
 			if (line != "")
 			{
+				TryComment(i, line, ref command);
 				TryLabel(i, line, ref command);
 				TryGoTo(i, line, ref command);
 				TrySay(i, line, ref command);
@@ -95,6 +113,16 @@ public class DialogueParser
 		commandList.Add(new Command("EXIT"));
 	}
 
+	public void TryComment(int index, string line, ref Command outCommand)
+	{
+		Regex r = new Regex("^\\s*#");
+		Match match = r.Match(line);
+		if (!match.Success) { return; }
+
+		// Actual code
+		outCommand = new Command("NONE");
+ 	}
+
 	// [label]
 	public void TryLabel(int index, string line, ref Command outCommand)
 	{
@@ -106,12 +134,12 @@ public class DialogueParser
 		string label = match.Groups[1].ToString();
 		labelIndexDict.Add(label, index);
 		outCommand = new Command("NONE");
- 	}
+	}
 
 	// GOTO
 	public void TryGoTo(int index, string line, ref Command outCommand)
 	{
-		Regex r = new Regex("^!GOTO (.+)$");
+		Regex r = new Regex("^!GOTO\\[(.+)\\]$");
 		Match match = r.Match(line);
 		if (!match.Success) { return; }
 
@@ -143,7 +171,7 @@ public class DialogueParser
 	// CHOOSE
 	public void TryChoose(int index, string line, ref Command outCommand)
 	{
-		Regex r = new Regex("^!CHOOSE\\[(.+)\\] (.+)$");
+		Regex r = new Regex("^!CHOOSE\\[(.+)\\]\\s?(.*)$");
 		Match match = r.Match(line);
 		if (!match.Success)
 		{

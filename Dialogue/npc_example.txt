@@ -1,0 +1,28 @@
+[AA 1]
+
+!CHOOSE[pie] AA: Youngster!  What are you doing in the rain?  You’ll catch a cold!
+> Who
+> Do
+	
+[pie 1]
+AA: We can discuss that somewhere drier.
+!GOTO [Player Response Resolved]
+
+[pie 2]
+#Albert Armstrong laughs.
+AA: I didn’t know you were a comedian, youngster!
+!GOTO [Player Response Resolved]
+
+[pie 3]
+AA: Oh my…this kid’s got quite the baggage...
+!GOTO [Player Response Resolved]
+
+[Player Response Resolved]
+AA: Come!  Follow me!
+!EXIT
+
+#Player walks into building.  Next cutscene occurs.
+# Academic Advisor Interaction.
+[AA 2]
+
+AA: oh

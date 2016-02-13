@@ -10,7 +10,7 @@ public class Singleton : MonoBehaviour
 		if(!instance)
 		{
 			instance = this;
-			DontDestroyOnLoad(gameObject);
+//			DontDestroyOnLoad(gameObject);
 		}
 		else
 		{
