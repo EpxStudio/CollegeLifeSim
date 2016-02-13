@@ -9,6 +9,8 @@ static class MainPlayer {
     //baseSmartness is a set value which can be added to by smartness which is gained from items
     
     private static int baseStress;
+    private static int baseExhaustion;
+    private static int baseHunger;
 
     public static int Stress
     {
@@ -21,10 +23,32 @@ static class MainPlayer {
             }
             return toReturn;
         }
-        private set
+    }
+
+    public static int Exhaustion
+    {
+        get
         {
-            baseStress = value;
+            var toReturn = baseExhaustion;
+            foreach (var i in Inventory)
+            {
+                toReturn += i.Exhaustion;
+            }
+            return toReturn;
         }
-    }    
+    }
+
+    public static int Hunger
+    {
+        get
+        {
+            var toReturn = baseHunger;
+            foreach (var i in Inventory)
+            {
+                toReturn += i.Hunger;
+            }
+            return toReturn;
+        }
+    }
 
 }
