@@ -17,7 +17,7 @@ public class AdvisorEntity : Entity
 	
 	public override bool OnCollisionSolid(Entity other)
 	{
-		
+		Debug.Log("In Collision");
 		ChatController.Show ("Hello welcome to college, I will be you're advisor");
 
 		return true;

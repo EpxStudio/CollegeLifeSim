@@ -9,6 +9,17 @@ public class FountainScript : Entity
 
 		isSolid = true;  // the npc is a solid object. player can't move through it
 
+	}
+
+	public override void OnUpdate()
+	{
+		base.OnUpdate();
+	}
+
+	public override bool OnCollisionSolid(Entity other)
+	{
+		Debug.Log("In Collision");
+		ChatController.Show ("Would you like to make a wish, y or n?");
 		if (Input.GetKey ("y")) 
 		{
 			int chance = Random.Range (1, 4);
@@ -29,17 +40,6 @@ public class FountainScript : Entity
 			ChatController.Show("Too Bad");
 		}
 
-	}
-
-	public override void OnUpdate()
-	{
-		base.OnUpdate();
-	}
-
-	public override bool OnCollisionSolid(Entity other)
-	{
-
-		ChatController.Show ("Would you like to make a wish, y or n?");
 
 			
 		return true;

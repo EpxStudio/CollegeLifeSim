@@ -17,7 +17,7 @@ public class TVScript : Entity
 
 	public override bool OnCollisionSolid(Entity other)
 	{
-
+		Debug.Log("In Collision");
 		ChatController.Show ("Today on Dino News!!!");
 		return true;
 
