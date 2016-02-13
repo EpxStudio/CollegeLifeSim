@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public class ObjectScript : Entity {
 
-//Wall.cs is essentially a copy of this class. Delete Wall.cs?
-public class WallEntity : Entity
-{
 	public override void OnAwake()
 	{
 		base.OnAwake();
@@ -13,19 +11,9 @@ public class WallEntity : Entity
 		
 		isSolid = true;  // the npc is a solid object. player can't move through it
 	}
-
-	public override bool OnCollisionSolid(Entity other)
-    {
-<<<<<<< HEAD
-        base.OnUpdate();
-    }
-    
+	
 	public override bool OnCollisionSolid(Entity other)
 	{
 		return false;
 	}
-=======
-		return false;
-    }
->>>>>>> dorm
 }
