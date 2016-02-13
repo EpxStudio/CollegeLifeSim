@@ -1,18 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LanguageTextbook : MonoBehaviour
+public class LanguageTextbook : Textbook
 {
-
-	// Use this for initialization
-	void Start()
-	{
-
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-
-	}
+    public LanguageTextbook()
+    {
+        Stress = -3;
+    }
 }
