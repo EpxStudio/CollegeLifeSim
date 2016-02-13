@@ -7,7 +7,7 @@ public class NPCEntity : Entity
     {
         base.OnAwake();
 
-		DialogueController.instance.Load(this, "npc_example");
+		DialogueController.instance.Load(this, "npc_example.txt");
 
         isSolid = true;  // the npc is a solid object. player can't move through it
     }
