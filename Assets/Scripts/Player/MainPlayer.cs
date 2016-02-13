@@ -8,22 +8,22 @@ static class MainPlayer {
 
     //baseSmartness is a set value which can be added to by smartness which is gained from items
     
-    private static int baseSmartness;
+    private static int baseStress;
 
-    public static int smartness
+    public static int Stress
     {
         get
         {
-            var toReturn =  baseSmartness;
+            var toReturn =  baseStress;
             foreach (var i in Inventory)
             {
-                toReturn += i.smartness;
+                toReturn += i.Stress;
             }
             return toReturn;
         }
         private set
         {
-            baseSmartness = value;
+            baseStress = value;
         }
     }    
 
