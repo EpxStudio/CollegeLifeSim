@@ -7,7 +7,10 @@ static class MainPlayer {
     public static List<InventoryItem> Inventory = new List<InventoryItem>();
 
     //baseSmartness is a set value which can be added to by smartness which is gained from items
-    
+
+    //Int to keep track of money on character
+    public static int money;
+
     private static int baseStress;
     private static int baseExhaustion;
     private static int baseHunger;

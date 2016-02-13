@@ -5,8 +5,7 @@ public class Sandwich : Snack
 {
 	public Sandwich()
 	{
-		PermanentBoost = false;
-		Cost = 8;
-		Hunger = 25;
+        cost = 8;
+        Hunger = -25;
 	}
 }

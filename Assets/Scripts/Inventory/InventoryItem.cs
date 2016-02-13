@@ -6,4 +6,5 @@ public abstract class InventoryItem
     public int Stress;
     public int Hunger;
     public int Exhaustion;
+    public int cost;
 }
