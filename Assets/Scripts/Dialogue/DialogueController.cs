@@ -115,6 +115,7 @@ public class DialogueParser
 
 	public void TryComment(int index, string line, ref Command outCommand)
 	{
+		if (outCommand != null) { return; }
 		Regex r = new Regex("^\\s*#");
 		Match match = r.Match(line);
 		if (!match.Success) { return; }
@@ -126,6 +127,7 @@ public class DialogueParser
 	// [label]
 	public void TryLabel(int index, string line, ref Command outCommand)
 	{
+		if (outCommand != null) { return; }
 		Regex r = new Regex("^\\[(.+)\\]$");
 		Match match = r.Match(line);
 		if (!match.Success) { return; }
@@ -139,6 +141,7 @@ public class DialogueParser
 	// GOTO
 	public void TryGoTo(int index, string line, ref Command outCommand)
 	{
+		if (outCommand != null) { return; }
 		Regex r = new Regex("^!GOTO\\[(.+)\\]$");
 		Match match = r.Match(line);
 		if (!match.Success) { return; }
@@ -154,6 +157,7 @@ public class DialogueParser
 	// SAY
 	public void TrySay(int index, string line, ref Command outCommand)
 	{
+		if (outCommand != null) { return; }
 		Regex r = new Regex("^(.+): (.+)$");
 		Match match = r.Match(line);
 		if (!match.Success) { return; }
@@ -171,6 +175,7 @@ public class DialogueParser
 	// CHOOSE
 	public void TryChoose(int index, string line, ref Command outCommand)
 	{
+		if (outCommand != null) { return; }
 		Regex r = new Regex("^!CHOOSE\\[(.+)\\]\\s?(.*)$");
 		Match match = r.Match(line);
 		if (!match.Success)
@@ -201,6 +206,7 @@ public class DialogueParser
 	// EXIT
 	public void TryExit(int index, string line, ref Command outCommand)
 	{
+		if (outCommand != null) { return; }
 		Regex r = new Regex("^!EXIT$");
 		Match match = r.Match(line);
 		if (!match.Success) { return; }

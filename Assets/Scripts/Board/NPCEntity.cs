@@ -7,11 +7,7 @@ public class NPCEntity : Entity
     {
         base.OnAwake();
 
-<<<<<<< HEAD
 		DialogueController.instance.Load(this, "npc_example.txt");
-=======
-		//DialogueController.instance.Load(this, "npc_example");
->>>>>>> dorm
 
         isSolid = true;  // the npc is a solid object. player can't move through it
     }

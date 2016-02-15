@@ -16,16 +16,8 @@ public class WallEntity : Entity
 
 	public override bool OnCollisionSolid(Entity other)
     {
-<<<<<<< HEAD
         base.OnUpdate();
-    }
-    
-	public override bool OnCollisionSolid(Entity other)
-	{
-		return false;
-	}
-=======
+
 		return false;
     }
->>>>>>> dorm
 }
