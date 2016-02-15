@@ -19,13 +19,15 @@ public class AdvisorEntity : Entity
 
 	public override bool OnCollisionSolid(Entity other)
 	{
-		return false;
+		print ("in collision");
+		ChatController.Show ("Made it");
+		return true;
 	}
 
 	public override void OnAction()
 	{
 		base.OnAction();
-
+		print ("in onAction");
 		ChatController.instance.SetDialogue(this);
 	}
 }
