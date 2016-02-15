@@ -38,7 +38,7 @@ public class Entity : BoardObject
             timer += Time.fixedDeltaTime;
             if (timer >= timeToMove)
             {
-                isMoving = false;
+                isMoving = false;	
                 realPos = endPos;
             }
         }

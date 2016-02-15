@@ -1,0 +1,35 @@
+[Intro]
+AA: Ah! It’s much drier in here.
+AA: Now then, youngster. I take it you’re an incoming freshman? It’s the day before classes start, you know? I take it your severely unprepared?
+AA: Didn’t buy your school supplies?
+AA: Haven’t filed for housing?… you don’t have a class schedule do you?
+# AA jumps in the air
+AA: Well, not to worry, youngster! That’s exactly what I’m here for! Actually, I’m only supposed to help you set up classes during freshman orientation! And that was two months ago!
+AA: …but I’m no ordinary advisor.
+
+!CHOOSE[pie] AA: What kind of pie do you like?
+> Apple
+> Blueberry
+> Raspberry
+	
+[pie 1]
+AA: I love apple pies!
+!GOTO[Player Response Resolved]
+
+[pie 2]
+# This is a comment.
+# TODO Later, the AA will punch the player here.
+AA: You disgust me.
+!GOTO[Player Response Resolved]
+
+[pie 3]
+AA: Pbbfbfbt! You’re dumb.
+AA: Haha!
+!GOTO[Player Response Resolved]
+
+[Player Response Resolved]
+AA: See me after school.
+!EXIT
+
+[Unreachable]
+AA: This code will never be reached.

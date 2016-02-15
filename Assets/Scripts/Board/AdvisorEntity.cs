@@ -6,22 +6,26 @@ public class AdvisorEntity : Entity
 	public override void OnAwake()
 	{
 		base.OnAwake();
-		
+
+		DialogueController.instance.Load(this, "IntroAdvisor.txt");
+
 		isSolid = true;  // the npc is a solid object. player can't move through it
 	}
-	
+
 	public override void OnUpdate()
 	{
 		base.OnUpdate();
 	}
-	
+
 	public override bool OnCollisionSolid(Entity other)
 	{
-		Debug.Log("In Collision");
-		ChatController.Show ("Hello welcome to college, I will be you're advisor");
-
 		return false;
-
 	}
 
+	public override void OnAction()
+	{
+		base.OnAction();
+
+		ChatController.instance.SetDialogue(this);
+	}
 }
