@@ -93,8 +93,8 @@ public class DialogueParser
 				TryComment(i, line, ref command);
 				TryLabel(i, line, ref command);
 				TryGoTo(i, line, ref command);
-				TrySay(i, line, ref command);
 				TryChoose(i, line, ref command);
+				TrySay(i, line, ref command);
 				TryExit(i, line, ref command);
 
 				if (command == null)
@@ -282,7 +282,7 @@ public class DialogueParser
 						choice
 					));
 
-					//accumulate all questions
+					//accumulate all question options
 					int optionIndex = curIndex + 1;
 					ArrayList options = new ArrayList();
 					string text = question;
@@ -313,6 +313,7 @@ public class DialogueParser
 					curIndex = gotoLabelIndex;
 					isBlocking = false;
 					isAwaitingInput = false;
+					return;
 				}
 			}
 			else if (command.commandType == "EXIT")

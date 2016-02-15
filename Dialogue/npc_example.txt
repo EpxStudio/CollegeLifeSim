@@ -1,28 +1,41 @@
 [AA 1]
+# this line is a comment because it starts with a hash
+AA: Why, hello there, sonny.
+!CHOOSE[pie] AA: What kind of pie do you like?
+> Apple
+> Blueberry
+> Raspberry
 
-!CHOOSE[pie] AA: Youngster!  What are you doing in the rain?  You’ll catch a cold!
-> Who
-> Do
-	
 [pie 1]
-AA: We can discuss that somewhere drier.
-!GOTO [Player Response Resolved]
+AA: I love apple pies! I think you'll fit in well here.
+!GOTO[Player Response Resolved]
 
 [pie 2]
-#Albert Armstrong laughs.
-AA: I didn’t know you were a comedian, youngster!
-!GOTO [Player Response Resolved]
+# academic advisor laughs
+AA: Hahaha!
+!CHOOSE[serious] AA: I didn't know you were a comedian, youngster!
+> Haha, you know me!
+> No, I'm serious.
+
+[serious 1]
+AA: Kids these days get funnier and funnier.
+!GOTO[Player Response Resolved]
+
+[serious 2]
+AA: You disgust me.
+# now the academic advisor attacks you
+# but we didn't program that so he justs says bye instead
+!GOTO[Player Response Resolved]
 
 [pie 3]
-AA: Oh my…this kid’s got quite the baggage...
-!GOTO [Player Response Resolved]
+AA: Pbbbbfblfltl! You're dumb.
+!GOTO[Player Response Resolved]
 
 [Player Response Resolved]
-AA: Come!  Follow me!
+AA: Anyway, I must leave now.
 !EXIT
 
-#Player walks into building.  Next cutscene occurs.
-# Academic Advisor Interaction.
-[AA 2]
-
-AA: oh
+# code below here will never be reached since it is under an !EXIT
+# but later we will add in directly loading labels
+[Unreachable Label]
+AA: Aw, I'm sad.
