@@ -124,7 +124,7 @@ public class CameraController : MonoBehaviour
         Entity[] entities = GameObject.FindObjectsOfType<Entity>();
         foreach (Entity entity in entities)
         {
-            entity.transform.rotation = Quaternion.Euler(-cameraAngle, 0f, 0f);
+			//entity.transform.rotation = Quaternion.Euler(-cameraAngle, 0f, 0f);
         }
     }
 }

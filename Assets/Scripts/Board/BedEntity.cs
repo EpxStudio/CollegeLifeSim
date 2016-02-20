@@ -14,12 +14,18 @@ public class BedEntity : Entity
 
 	public override bool OnCollisionSolid(Entity other)
 	{
+		Debug.Log("In Collision");
+		ChatController.Show("Do you want to sleep?");
+		if (Input.GetKey ("y")) {
+			ChatController.Show ("Sleep well my little bed bug.");
+		}
 		return false;
+
 	}
     public override void OnAction()
     {
         base.OnAction();
 
-		ChatController.instance.SetDialogue(this);
+		//ChatController.instance.SetDialogue(this);
     }
 }
