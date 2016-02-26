@@ -27,6 +27,7 @@ public class ChatController : MonoBehaviour
         }
 
         GUI.skin = guiSkin;
+		guiSkin.label.wordWrap = true;
         int height = 160;
         Rect rect = new Rect(0, Screen.height - height, Screen.width, height);
         GUI.Box(rect, GetCurrentMessage().GetText());
