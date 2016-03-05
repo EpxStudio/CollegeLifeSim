@@ -1,0 +1,16 @@
+[intro]
+
+!CHOOSE[pie] Do you want to sleep, sweetheart?
+> Yes, honey!
+> No thanks!
+
+[pie 1]
+Excellent!
+!GOTO [Player Response Resolved]
+
+[pie 2]
+Fine then!
+!GOTO [Player Response Resolved]
+
+[Player Response Resolved]
+

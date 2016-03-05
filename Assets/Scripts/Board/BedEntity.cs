@@ -7,21 +7,25 @@ public class BedEntity : Entity
     {
         base.OnAwake();
 
-//		DialogueController.instance.Load(this, "npc_bed");
+		DialogueController.instance.Load(this, "Bed.txt");
 
         isSolid = true;  // the npc is a solid object. player can't move through it
     }
 
 	public override bool OnCollisionSolid(Entity other)
 	{
-		Debug.Log("In Collision");
-		ChatController.Show("Do you want to sleep?");
-		if (Input.GetKey ("y")) {
-			ChatController.Show ("Sleep well my little bed bug.");
-		}
+		DialogueController.instance.Step (this);
 		return false;
 
 	}
+
+//	public override void OnDialogueFunction(string func)
+//	{
+//		if (func == "cutscene") {
+//		}
+//		return null;
+//	}
+
     public override void OnAction()
     {
         base.OnAction();
