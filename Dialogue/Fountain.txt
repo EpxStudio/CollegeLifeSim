@@ -1,0 +1,19 @@
+
+!CHOOSE[wish] FF: Would you like to make a wish?
+> Yes of course. 
+> no thank you
+
+	
+[wish 1]
+FF: Beware of roommate.
+!GOTO[Player Response Resolved]
+
+[wish 2]
+FF: Your lost.
+!GOTO[Player Response Resolved]
+
+[Player Response Resolved]
+FF: ha.
+!EXIT
+
+
